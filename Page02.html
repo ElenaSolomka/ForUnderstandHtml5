@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Закрытые свойства и методы</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+     <!--<script src="webcomponentsjs/webcomponents.js"></script>-->
+    <script src="GenerateMenu.js"></script>
+    <script src="includeJS.js"></script>
+    <!--<script src="bower_components/webcomponentsjs/externs/webcomponents.js"></script>-->
+    <!--<script src="bower_components/webcomponentsjs/webcomponents-hi-ce.js"></script>-->
+    <!--<script src="bower_components/webcomponentsjs/webcomponents-hi-sd-ce.js"></script>-->
+    <!--<script src="bower_components/webcomponentsjs/webcomponents-hi.js"></script>-->
+    <!--<script src="bower_components/webcomponentsjs/webcomponents-lite.js" ></script>-->
+    <!--<script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>-->
+    <!--<script src="bower_components/webcomponentsjs/webcomponents-sd-ce.js"></script>-->
+    <!--<script src="bower_components/webcomponentsjs/custom-elements-es5-adapter.js"></script>-->
+    <!--<script src="bower_components/webcomponentsjs/gulpfile.js"></script>-->
+
+    <script>
+        //GenerateMenu();
+        includeJS("webcomponentsjs/webcomponents.js");
+          function handleLoad(e) {
+              console.log('Loaded import: ' + e.target.href);
+              alert('Loaded import: ' + e.target.href); //test0101();
+          }
+          function handleError(e) {
+              console.log('Error loading import: ' + e.target.href); alert('Error loading import: ' + e.target.href);
+          }
+    </script>
+
+    <link rel="import" href="list_import.html" onload="handleLoad(event)" onerror="handleError(event)" />
+
+</head>
+<body onload='Lll();' onunload="Ttt();"  onreadystatechange="alert('--');">
+    Page02<br /><br />
+    <div id="divMenu" name="divMenu"></div>
+ 
+    <script>
+        GenerateMenu();
+        function Lll()
+        {
+            //test0101();
+        }
+        function Ttt() {
+            test0102();
+        }
+        //alert("2222");
+        window.onload = function () { alert('777'); };
+      
+    </script>
+</body>
+</html>

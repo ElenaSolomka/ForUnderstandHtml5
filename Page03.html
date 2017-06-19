@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Закрытые свойства и методы</title>
+    <script src="webcomponentsjs/webcomponents.js"></script>
+    <script src="GenerateMenu.js"></script>
+    <link rel="import" href="list_import.html"  onload="handleLoad(event)" />
+    <link rel="import" href="component-a.html" />
+</head>
+<body>
+    Page03<br /><br />
+ 
+    <div id="divMenu" name="divMenu"></div>
+
+    <script>
+        GenerateMenu();
+        function handleLoad(e) {
+            //console.log('Loaded import: ' + e.target.href);
+//            alert('Loaded import: ' + e);
+            test0101();
+        }
+
+        function addImportLink(url) {
+            var link = document.createElement('link');
+            link.rel = 'import';
+            link.href = url;
+            link.handleLoad = handleLoad(event);
+            link.onload = function (e) {
+                var post = this.import.querySelector('#blog-post');
+
+                var container = document.querySelector('#container');
+                container.appendChild(post.cloneNode(true));
+            };
+            document.head.appendChild(link);
+        }
+
+        //addImportLink('list_import.html')
+        //alert("22");
+        //test0101();
+    </script>
+</body>
+</html>
