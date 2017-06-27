@@ -3,8 +3,31 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
+    <script src="js_Isolate.js"></script>
+    <script src="js_IsolateModule01.js"></script>
+    <script src="js_IsolateModule02.js"></script>
 </head>
 <body>
+    <script>
+
+
+    </script>
+    <div id="test" name="test"></div>
+
+    <script>
+        // создание пространства имен, которое использует все модули ajax, events и dom
+        App("module01",function (box) {
+            //var e = box.getElement("div1");
+            //document.write(" box.getElement(\"div1\")" + e + "<br/>");
+            //box.addListener(e, "click");
+
+            
+
+            box.method11("=d");
+            //alert(box.constructor.prototype.m);
+            box.method12("-78-");
+        });
+    </script>
 
 </body>
 </html>
