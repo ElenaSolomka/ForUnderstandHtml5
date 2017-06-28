@@ -23,7 +23,7 @@ function App() {
     if (!modules || modules === "*") {
         modules = [];
         for (i in App.modules) {
-            alert('i=' + i + "\n modules[i]=" + App.modules[i]);
+            //alert('i=' + i + "\n modules[i]=" + App.modules[i]);
 
             if (App.modules.hasOwnProperty(i)) {
                 //alert("push");
@@ -37,10 +37,17 @@ function App() {
         // каждый модуль представленн функцией. см. код ниже.
         App.modules[modules[i]](this);
     }
+    this.transferValue = "записываем в свойство конструктора какое-то значение";
+    //this.prototype = {};
+    // this.prototype.transferValue = "fromBeginNER";
 
     callback(this);
 }
 
+App.prototype = { transferValue: "здесь не запишется" };
+App.constructor.prototype = { transferValue: "здесь тоже не запишется" };
+App.constructor.prototype.transferValue = "тут можно записать значение";
+
+
 // опредленение модуелй.
 App.modules = {}
-
