@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="js_InheritModern_ExtendDeep.js"></script>
+    <script src="js_InheritModern_Mix.js"></script>
+</head>
+<body>
+
+    <script>
+        // 
+        var ingredient1 = { eggs: 2 };
+        var ingredient2 = { butter: 1, salted: true };
+        var ingredient3 = { flour: "3 cups" };
+        var ingredient4 = { sugare: true };
+
+        var cake = mix(ingredient1, ingredient2, ingredient3, ingredient4);
+
+        //
+        var base = {
+            id: "0",
+            name: "base object",
+            innerArray: [1, 2, 3]
+        };
+
+        var child = {};
+
+        extendDeep(base, child);
+
+        child.innerArray.push(4);
+
+        //
+        var val1 = { one: 2 };
+        var val2 = { two: 22 };
+        var val3 = { three: 333, third: [1, 2, 3] };
+        val3.third.push(44);
+        val3.four = function () { alert('function FOUR()');}
+        var valSumm = mixExtend(val1, val2, val3);
+        valSumm.third.push(5555);
+        valSumm.five = function () { alert('function FIVE()'); }
+
+        console.dir("cake:");
+        console.dir(cake);
+        console.log("base.innerArray:"); // 1,2,3
+        console.log(base.innerArray); // 1,2,3
+        console.log("child.innerArray:"); // 1,2,3, 4
+        console.log(child.innerArray); // 1,2,3, 4
+        console.log("val3:");
+        console.log(val3);
+        console.dir("valSumm:");
+        console.dir(valSumm);
+
+        val3.four();
+        valSumm.four();
+        valSumm.five();
+        //val3.five();
+
+    </script>
+</body>
+</html>
